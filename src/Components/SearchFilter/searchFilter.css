@@ -1,0 +1,21 @@
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.filter-title {
+    font-size: 1.5rem;
+    text-align: start;
+}
+
+.filter.checkbox-label {
+    font-size: 1.5rem;
+}
+
+.preferences {
+    margin: 5px auto;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+    text-align: center;
+}

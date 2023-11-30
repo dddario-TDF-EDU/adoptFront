@@ -1,0 +1,73 @@
+@import '../../index.css';
+
+.register-form {
+    margin: auto;
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-input {
+    border-radius: .5rem;
+    line-height: 4vh;
+    border: 1px solid var(--black-color);
+    width: 100%;
+    padding-left: 15px;
+    max-height: 35px;
+}
+
+.register-form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btn-form-div {
+    display: flex;
+    width: 100%;
+}
+
+.btn-register-form {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    margin: auto;
+    background-color: var(--main-bg-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.radio-input-form {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 3% auto;
+}
+
+.radio-input-form .filter-box {
+    margin: 3px;
+}
+
+.radio-input-form .filter-box .filter-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.password-info-list {
+    margin: 1rem auto;
+
+}
+
+.password-info-item {
+    list-style: circle !important;
+}
+.checkbox-input-form {
+    display: flex;
+    margin: 1rem auto;
+    flex-direction: column;
+}

@@ -1,0 +1,16 @@
+@import './index.css';
+
+body {
+	background-color: var(--background-color);
+}
+
+@keyframes slideleft{
+	0%{
+		transform: translate(100px);
+		opacity: 0;
+	}
+	100%{
+		transform: translate(0px);
+		opacity: 1;
+	}
+} 

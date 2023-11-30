@@ -1,0 +1,94 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    background-color: var(--background-card-color);
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    font-family: var(--p-font);
+}
+
+.login-title {
+    width: 100%;
+    margin: 4rem auto;
+    font-family: var(--title-font);
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.login-form {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.pass-group {
+    display: flex;
+    width: 100%;
+}
+
+.login-button {
+    border-radius: 10px;
+    height: 10%;
+    width: 90%;
+    background-color: var(--main-bg-color);
+    text-align: center;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+.a-register {
+    text-decoration: underline;
+    margin-left: .5rem;
+}
+
+.a-forgot-pass {
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+
+.none {
+    display: none;
+}
+
+.email-input-login,
+.password-input-login {
+    height: 3rem;
+    width: 100%;
+    border: 1px solid rgba(105, 103, 103, 0.651);
+    border-radius: 5px;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.password-input-login {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.email-login-label,
+.password-login-label {
+    margin-bottom: .5rem;
+    margin-right: auto;
+    font-weight: 600;
+    opacity: .7;
+}
+
+.button-pass {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-180%);
+}
+
+.status-text {
+    color: red;
+}

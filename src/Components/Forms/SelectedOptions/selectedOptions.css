@@ -1,0 +1,47 @@
+.select-header {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: .5rem;
+    line-height: 4vh;
+    border: 1px solid var(--black-color);
+    width: 100%;
+    padding-left: 15px;
+    max-height: 35px;
+}
+.select-options-title {
+    font-weight: 600;
+    margin: 3%;
+}
+.default-value {
+    opacity: .7;
+}
+.options {
+    position: absolute;
+    z-index: 3;
+    width: 19vw;
+    padding: .5rem 1rem;
+    margin-left: 1rem;
+    border-radius: 0 0 5px 5px;
+    background-color:rgb(238, 233, 233) ;
+    border: 1px solid gray;
+    
+}
+.option {
+    cursor: pointer;
+    opacity: .7;
+}
+.option:hover {
+    opacity: 1;
+}
+.arrow-options {
+    padding: 0 .5rem;
+}
+.open .arrow-options {
+    transform: rotate(180deg);
+}
+.select-header .arrow-options {
+    transition: transform 0.3s;
+}

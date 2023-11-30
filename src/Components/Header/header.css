@@ -1,0 +1,14 @@
+@import '../../index.css';
+
+.header {
+	height: 40vh;
+	background-image: url("https://s2.ppllstatics.com/lasprovincias/www/multimedia/202204/07/media/cortadas/perro-gato-kldD-U1601598613822BNC-1248x770@Las%20Provincias.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 55%;
+	border-radius: 0 0 20px 20px;
+	opacity: 0.9;
+	position: relative;
+}
+
+

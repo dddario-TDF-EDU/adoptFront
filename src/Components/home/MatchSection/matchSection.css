@@ -1,0 +1,28 @@
+.match.container-block {
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+.match-text {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.match.slider-container {
+    width: max-content;
+    overflow: hidden;
+}
+.match.slider-img {
+    display: flex;
+    height: 100%;
+}
+.match-img-content {
+    height: 100%;
+    width: max-content;
+    overflow: hidden;
+}
+.match-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center center;
+}

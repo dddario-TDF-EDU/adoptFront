@@ -1,0 +1,130 @@
+.complaints-form {
+    font-family: var(--p-font);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.information-inputs {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.complaints-form .grupoInput,
+.complaints-form .select-options-container {
+    width: 100%;
+}
+
+.loss-pet-container {
+    display: flex;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    transition: height .5s linear;
+}
+
+.show-container {
+    opacity: 1;
+    height: 100px;
+    transition: height .5s linear;
+}
+
+.loss-pet-container .grupoInput {
+    width: 45%;
+    font-size: .8rem;
+}
+
+.loss-pet-container .grupoInput .label {
+    text-align: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-input-group {
+    display: flex;
+}
+
+.file-input-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.file-input-label span {
+    margin-right: .5rem;
+}
+
+.textarea-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textarea-label {
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.textarea-complaint {
+    border: 1px solid var(--black-color);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+.adjunts-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.terms-group {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.complaints.checkbox-label {
+    opacity: 1;
+}
+
+.terms-link {
+    color: blue;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.complaint-btn-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.complaint-form-btn {
+    width: max-content;
+    text-align: center;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    background-color: var(--main-bg-color);
+    color: var(--white-color);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
