@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom'
 import { Modal } from '../Modales/Modal'
 import { RegisterForm } from '../Register/RegisterForm'
+
 import { useState } from 'react'
 import { useForm } from '../../hooks/useForm'
+import { useUser } from '../../hooks/useUser'
+
 import showPass from '../../assets/eye-password/show-password.svg'
 import hidePass from '../../assets/eye-password/hide-password.svg'
 
 import './loginScreen.css'
-import { useUser } from '../../hooks/useUser'
+import { ResetPasswordModal } from '../../utils/ResetPassword/ResetPasswordModal'
 
 export const LoginScreen = ({ isLoginSelected }) => {
 
     const { login, status } = useUser();
     const [isOpenModal1, setIsOpenModal1] = useState(false);
+    const [isOpenModal4, setIsOpenModal4] = useState(false);
     const [formValues, handleInputChange] = useForm({
         email: '',
         password: '',
@@ -50,13 +54,20 @@ export const LoginScreen = ({ isLoginSelected }) => {
                         </Link>
                     </p>
 
-                    <Link className="a-forgot-pass" to="/"> Olvidó su contraseña? </Link>
+                    <Link className="a-forgot-pass" onClick={() => setIsOpenModal4(true)}>
+                        Olvidó su contraseña?
+                    </Link>
                     <button className='login-button'>Iniciar Sesion</button>
                 </form>
                 <Modal isOpen={isOpenModal1}
-                    closeModal={() => { setIsOpenModal1(false) }}
+                    closeModal={() => setIsOpenModal1(false)}
                     modalNumber="1" >
-                    <RegisterForm closeModal1={() => { setIsOpenModal1(false) }} />
+                    <RegisterForm closeModal1={() => setIsOpenModal1(false)} />
+                </Modal>
+                <Modal isOpen={isOpenModal4}
+                    closeModal={() => setIsOpenModal4(false)}
+                    modalNumber="4">
+                        <ResetPasswordModal/>
                 </Modal>
             </div>
         </>

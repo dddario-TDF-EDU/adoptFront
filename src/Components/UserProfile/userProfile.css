@@ -4,7 +4,7 @@
     align-items: center;
     height: 90%;
     width: 25%;
-    background-color: var(--background-card-color);
+    background-color: var(--white-color);
     position: absolute;
     z-index: 3;
     right: 0;

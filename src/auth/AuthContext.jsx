@@ -8,7 +8,9 @@ export const AuthProvider = ({ children }) => {
         window.sessionStorage.getItem('jwt')
     );
 
-    return <AuthContext.Provider value={{ jwt, setJwt }}>
+    const [user, setUser ] = useState(null);
+    
+    return <AuthContext.Provider value={{ jwt, setJwt, user, setUser }}>
         {children}
     </AuthContext.Provider>
 }

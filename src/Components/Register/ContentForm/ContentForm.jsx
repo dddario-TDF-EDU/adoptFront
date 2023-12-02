@@ -18,12 +18,12 @@ const livingPlaceOptions = [
 ];
 
 const hasPetOptions = [
-    { labelContent: 'Si', value: '1' },
-    { labelContent: 'No', value: '0' },
+    { labelContent: 'Si', value: true },
+    { labelContent: 'No', value: false },
 ];
 
 
-export const ContentForm = ({ formData, handleRegisterChange }) => {
+export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChange }) => {
 
     const [isShowPass, setIsShowPass] = useState(false);
 
@@ -62,7 +62,7 @@ export const ContentForm = ({ formData, handleRegisterChange }) => {
                     onChange={handleRegisterChange}
                 />
                 <TextInput
-                    className={`register`}
+                    className='register'
                     label="Email"
                     placeholder="email@correo.com"
                     type="text"
@@ -73,7 +73,7 @@ export const ContentForm = ({ formData, handleRegisterChange }) => {
                     onChange={handleRegisterChange}
                 />
                 <TextInput
-                    className={`register`}
+                    className='register pass-div'
                     label="Contraseña"
                     placeholder="Contraseña"
                     type={isShowPass ? "text" : "password"}
@@ -83,20 +83,20 @@ export const ContentForm = ({ formData, handleRegisterChange }) => {
                     isUseRef={formData.password}
                     onChange={handleRegisterChange}
                 >
-                    <button type='button' className='button-pass' onClick={handleTooglePass}>
+                    <button type='button' className='button-pass-register' onClick={handleTooglePass}>
                         <img src={isShowPass ? showPass : hidePass} alt="" />
                     </button>
                     <ul className="password-info-list">
                         <li>La contraseña debe contener :</li>
-                        <li className="password-info-item">8 - 15 caracteres</li>
-                        <li className="password-info-item">Al menos una mayuscula</li>
-                        <li className="password-info-item">Al menos una minuscula</li>
-                        <li className="password-info-item">Al menos un caracter especial</li>
-                        <li className="password-info-item">Al menos un numero</li>
+                        <li className="password-info-item">Al menos 8 caracteres</li>
+                        <li className="password-info-item">Al menos una mayúscula</li>
+                        <li className="password-info-item">Al menos una minuúscula</li>
+                        <li className="password-info-item">Al menos un carácter especial</li>
+                        <li className="password-info-item">Al menos un número</li>
                     </ul>
                 </TextInput>
                 <TextInput
-                    className={`register`}
+                    className='register'
                     label="Numero de telefono"
                     placeholder="2901xxxxxx"
                     type="number"
@@ -132,16 +132,16 @@ export const ContentForm = ({ formData, handleRegisterChange }) => {
                 <CheckboxInput
                     labelContent='Soy mayor de 21 años'
                     type="checkbox"
-                    name="available-age"
+                    name="availableAge"
                     value={formData.availableAge}
-                    onChange={handleRegisterChange}
+                    onChange={handleCheckboxChange}
                 />
                 <CheckboxInput
                     labelContent='Acepto los terminos y condiciones'
                     type="checkbox"
-                    name="terms-condition"
+                    name="termsAndCondition"
                     value={formData.termsAndCondition}
-                    onChange={handleRegisterChange}
+                    onChange={handleCheckboxChange}
                 />
             </div>
         </>

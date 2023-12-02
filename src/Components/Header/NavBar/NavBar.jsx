@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import Logo from '../../../assets/logo.svg';
 import ScrollToTop from 'react-scroll-to-top';
-import { Link } from 'react-router-dom';
+
 import { LoginScreen } from '../../Login/LoginScreen';
 import { useUser } from '../../../hooks/useUser'
-import './navBar.css'
+
 import { UserProfile } from '../../UserProfile/UserProfile';
+import './navBar.css'
 
 export const NavBar = () => {
 
     const [isLoginSelected, setIsLoginSelected] = useState(false);
     const [isProfileSelected, setIsProfileSelected] = useState(false);
-    const [user, setUser] = useState(null);
-    const { isLogged } = useUser();
+    const { user } = useUser();
 
     const handleLogin = () => {
         setIsLoginSelected(!isLoginSelected)
@@ -47,22 +49,22 @@ export const NavBar = () => {
                         <Link to='/donaciones' onClick={<ScrollToTop smooth />} >Ayudar</Link>
                     </li>
                     <li className="link-item">
-                        {!isLogged ?
+                        {!user ?
                             <button className="user-login-button"
-                                onClick={() => handleLogin()}>
+                                onClick={() =>  handleLogin()}>
                                 Iniciar sesion
                             </button>
                             :
                             <button className='btn-profile'
                                 onClick={() => handleProfile()}
-                            > {user && user[0]} </button>
+                            > {user.name[0]+user.surname[0]} </button>
                         }
                     </li>
                 </ul>
             </nav>
-            {!isLogged ?
+            {!user ?
                 <LoginScreen isLoginSelected={isLoginSelected} />
-                : <UserProfile userInformation={setUser} isProfileSelected={isProfileSelected} />}
+                : <UserProfile isProfileSelected={isProfileSelected} />}
         </>
     )
 }

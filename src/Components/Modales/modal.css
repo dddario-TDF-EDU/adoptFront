@@ -2,7 +2,8 @@
 
 .modal-1,
 .modal-2,
-.modal-3{
+.modal-3,
+.modal-4{
     position: fixed;
     z-index: 10;
     top: 0;
@@ -15,12 +16,15 @@
     align-items: center;
     animation: slideleft 1s forwards;
 }
-.modal-2,.modal-3{
+.modal-2,
+.modal-3, 
+.modal-4{
     height: max-content;
 }
 .modal-1.is-open,
 .modal-2.is-open,
-.modal-3.is-open {
+.modal-3.is-open,
+.modal-4.is-open {
     display: flex;
 }
 
@@ -30,7 +34,7 @@
     padding: 1.5rem;
     max-width: 600px;
     border-radius: 20px;
-    background-color: white;
+    background-color: var(--white-color);
     animation: slideleft 1s forwards;
     font-family: var(--p-font);
 }
