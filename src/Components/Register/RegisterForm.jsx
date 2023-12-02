@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Modal } from '../Modales/Modal'
 import { ContentForm } from './ContentForm/ContentForm'
 import { registerServices } from '../../auth/services/authServices.mjs';
-import { getValidateForm, getValidateEmail, getValidatePhone } from '../../Services/getValidForm.mjs';
+import { getValidateForm, getValidateEmail, getValidatePhone, getValidatePassword } from '../../Services/getValidForm.mjs';
 import './registerForm.css'
 import { useForm } from '../../hooks/useForm';
 
@@ -25,7 +25,7 @@ export const RegisterForm = ({ closeModal1 }) => {
   const [wasSent, setWasSend] = useState(false);
   const [isOpenModal2, setIsOpenModal2] = useState(false);
   const [registerMessage, setRegisterMessage] = useState('');
-  const [formData, handleRegisterChange] = useForm({
+  const [formData, handleRegisterChange, handleCheckboxChange] = useForm({
     name: '',
     surname: '',
     email: '',
@@ -40,7 +40,7 @@ export const RegisterForm = ({ closeModal1 }) => {
   });
 
   const isValidForm = () => {
-    console.log(formData)
+  
     if (getValidateForm(formData)) {
       if (!getValidateEmail(formData.email)) {
         setRegisterMessage('Formato de email incorrecto, por favor ingrese un email válido.');
@@ -48,6 +48,10 @@ export const RegisterForm = ({ closeModal1 }) => {
       }
       else if (!getValidatePhone(formData.phoneNumber)) {
         setRegisterMessage('Formato de teléfono incorrecto, por favor ingrese un número válido.');
+        setIsOpenModal2(true);
+      }
+      else if(!getValidatePassword(formData.password)) {
+        setRegisterMessage('Por favor ingrese una contraseña válida.');
         setIsOpenModal2(true);
       }
       else {
@@ -65,7 +69,6 @@ export const RegisterForm = ({ closeModal1 }) => {
       setRegisterMessage(validMessage);
       setIsOpenModal2(true);
       setWasSend(true);
-      console.log(formData)
     } catch (error) {
       setRegisterMessage(errorMessage);
       setIsOpenModal2(true);
@@ -80,7 +83,7 @@ export const RegisterForm = ({ closeModal1 }) => {
   return (
     <>
       <form className='register-form' onSubmit={handleSubmit}>
-        <ContentForm formData={formData} handleRegisterChange={handleRegisterChange} />
+        <ContentForm formData={formData} handleRegisterChange={handleRegisterChange} handleCheckboxChange={handleCheckboxChange}/>
         <div className="btn-form-div">
           <button className='btn-register-form'>Registrarse</button>
         </div>

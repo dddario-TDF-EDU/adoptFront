@@ -3,27 +3,31 @@ import { AuthContext } from "../auth/AuthContext"
 import { loginServices } from "../auth/services/authServices.mjs";
 
 export const useUser = () => {
-    const { jwt, setJwt } = useContext(AuthContext);
+    const { jwt, setJwt, user, setUser } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState({ loading: false, error: false, status: '' });
 
-    const login = useCallback((userData) => {
+    const login = useCallback(async(userData) => {
         setIsLoading({ loading: true, error: false, status: '' })
-        loginServices(userData)
-            .then(jwt => {
-                const jwtString =  JSON.stringify(jwt);
-                window.sessionStorage.setItem('jwt', jwtString)
-                setIsLoading({ loading: false, error: false, status: '' })
-                setJwt(jwt)
-            })
-            .catch(err => {
-                window.sessionStorage.removeItem('jwt')
-                if (err.response && err.response.status == 401) {
-                    setIsLoading({ loading: true, error: true, status: 401 })
-                } else {
-                    setIsLoading({ loading: true, error: true, status: 'Error inesperado. Intente nuevamente.' })
-                }
-            })
-    }, [setJwt])
+        try {
+            const response =  await loginServices(userData);
+            const { jwt, user } = response;
+            const jwtString = JSON.stringify(jwt);
+            window.sessionStorage.setItem('jwt', jwtString);
+
+            setUser(user);
+            setJwt(jwt);
+
+            setIsLoading({ loading: false, error: false, status: '' });
+        }
+        catch (error) {
+            window.sessionStorage.removeItem('jwt')
+            if (error.response && error.response.status == 401) {
+                setIsLoading({ loading: true, error: true, status: 401 })
+            } else {
+                setIsLoading({ loading: true, error: true, status: 'Error inesperado. Intente nuevamente.' })
+            }
+        }
+    }, [setJwt, setUser])
 
     const logout = useCallback(() => {
         setJwt(null)
@@ -35,6 +39,7 @@ export const useUser = () => {
         hasError: isLoading.error,
         status: isLoading.status,
         login,
-        logout
+        logout,
+        user,
     }
 }

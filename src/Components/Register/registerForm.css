@@ -66,8 +66,20 @@
 .password-info-item {
     list-style: circle !important;
 }
+
 .checkbox-input-form {
     display: flex;
     margin: 1rem auto;
     flex-direction: column;
+}
+
+.pass-div {
+    position: relative;
+}
+
+.button-pass-register {
+    position: absolute;
+    right: 10px;
+    bottom: 60%;
+    transform: translateY(-50%);
 }

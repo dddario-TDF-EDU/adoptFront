@@ -37,8 +37,10 @@ const SearchFilter = ({ setFilters }) => {
         }));
 
         setFilters((prevFilter) => ({
-            ...prevFilter, // se crea una copia del objeto prevFilter para mantener todos los filtros seleccionados
-            [name]: checked ? value : undefined // se verifica si el check es true se retorna el name del mismo sino se devuelve undefined
+            // se crea una copia del objeto prevFilter para mantener todos los filtros seleccionados
+            ...prevFilter, 
+            // se verifica si el check es true se retorna el name del mismo sino se devuelve undefined
+            [name]: checked ? value : undefined 
         }));
     }
     return (
