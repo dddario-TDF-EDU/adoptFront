@@ -149,10 +149,10 @@ html {
 
 :root {
     --main-bg-color: #28b95f;
-    --background-color: #e9e6e6;
-    --background-card-color: #fff;
+    --background-color: #dbd3d3c7;
+    --background-card-color: #fcf5f5d7;
     --title-font: 'Mona-Sans', sans-serif;
     --p-font: 'Gilroy-Regular', sans-serif;
-    --white-color: #ffffff;
-    --black-color: #000000;
+    --white-color: rgba(245, 245, 229, 0.973);
+    --black-color: #222121;
 }
