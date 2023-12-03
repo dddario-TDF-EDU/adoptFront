@@ -14,3 +14,27 @@ body {
 		opacity: 1;
 	}
 } 
+.btn-chat{
+	margin: 5px;
+	border-radius: 25px;
+	padding: 8px;
+	border: 1px solid black;
+	border-color: rgb(139, 175, 160);
+	background-color: rgb(227, 236, 231);
+	text-align: center;
+	bottom: 100px;
+	right: 30px;
+	position: fixed;
+	font-size: 2em;
+	color: #26ae5a;
+}
+
+.chat-contain{
+text-align: center;
+bottom: 110px;
+right: 85px;
+position: fixed;
+transition: ease-in-out;
+border: 1px solid rgb(27, 93, 85);
+border-radius: 5px;
+}

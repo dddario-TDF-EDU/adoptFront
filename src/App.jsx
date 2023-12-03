@@ -9,13 +9,41 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { AuthProvider } from './auth/AuthContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeadset } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
+
+import Chatbot from 'react-chatbot-kit';
+import 'react-chatbot-kit/build/main.css';
+
+import config from './Chatbot/config';
+import MessageParser from './Chatbot/MessageParser';
+import ActionProvider from './Chatbot/ActionProvider';
 
 function App() {
+
+  const [chatOpen, setChatOpen] = useState(false);
 
   return (
       <AuthProvider>
       <BrowserRouter>
         <Header></Header>
+        <div className='chat-contain' >
+        {chatOpen && (
+        <Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProvider}
+        headerText='Adopt-chat'
+        placeholderText='Escribe tu mensaje'
+      />
+      )}
+        <button 
+        className='btn-chat'
+        onClick={()=> setChatOpen((prev) => !prev)}>
+        <FontAwesomeIcon icon={faHeadset} />
+        </button>
+        </div>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/adopciones/mascotas' element={<AdoptPage />}></Route>
