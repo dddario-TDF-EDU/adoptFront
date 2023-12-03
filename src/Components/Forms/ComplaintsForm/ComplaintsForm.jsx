@@ -19,7 +19,7 @@ const ComplaintsForm = () => {
         email: '',
         phoneNumber: '',
         file: '',
-        complaintDescription: '',
+        description: '',
         termsInput: false,
     });
 
@@ -168,7 +168,7 @@ const ComplaintsForm = () => {
                     <label className='textarea-label' htmlFor="textarea-complaint">
                         Por favor ingrese una descripción detallada del hecho.</label>
                     <textarea className='textarea-complaint'
-                        name='complaintDescription' value={formData.complaintDescription} id='textarea-complaint' cols="30" rows="10" onChange={handleInputChange}></textarea>
+                        name='description' value={formData.description} id='textarea-complaint' cols="30" rows="10" onChange={handleInputChange}></textarea>
                     <div className='terms-group'>
                         <CheckboxInput className='complaints'
                             type='checkbox'
