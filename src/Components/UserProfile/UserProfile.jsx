@@ -3,13 +3,14 @@ import './userProfile.css'
 
 export const UserProfile = ({ isProfileSelected }) => {
 
-    const { user } = useUser();
-    
+    const { userData, logout } = useUser();
+
     return (
         <div className={isProfileSelected ? 'profile-container' : 'none'}>
             <h2 className="profile-greet">
-                Bienvenido {user.name}
+                Bienvenido {userData.name}
             </h2>
+            <button onClick={logout}>Cerrar sesion</button>
         </div>
     )
 }

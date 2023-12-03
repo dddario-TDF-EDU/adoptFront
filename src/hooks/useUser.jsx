@@ -1,18 +1,20 @@
 import { useCallback, useContext, useState } from "react"
 import { AuthContext } from "../auth/AuthContext"
 import { loginServices } from "../auth/services/authServices.mjs";
+import { useMemo } from "react";
 
 export const useUser = () => {
     const { jwt, setJwt, user, setUser } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState({ loading: false, error: false, status: '' });
 
-    const login = useCallback(async(userData) => {
+    const login = useCallback(async (userData) => {
         setIsLoading({ loading: true, error: false, status: '' })
         try {
-            const response =  await loginServices(userData);
+            const response = await loginServices(userData);
             const { jwt, user } = response;
+            
             const jwtString = JSON.stringify(jwt);
-            window.sessionStorage.setItem('jwt', jwtString);
+            window.localStorage.setItem('jwt', jwtString);
 
             setUser(user);
             setJwt(jwt);
@@ -20,7 +22,8 @@ export const useUser = () => {
             setIsLoading({ loading: false, error: false, status: '' });
         }
         catch (error) {
-            window.sessionStorage.removeItem('jwt')
+            window.localStorage.removeItem('jwt')
+
             if (error.response && error.response.status == 401) {
                 setIsLoading({ loading: true, error: true, status: 401 })
             } else {
@@ -30,9 +33,14 @@ export const useUser = () => {
     }, [setJwt, setUser])
 
     const logout = useCallback(() => {
-        setJwt(null)
-    }, [setJwt])
+        window.localStorage.removeItem('jwt')
+        setJwt(null);
+        setUser(null)
+    }, [setJwt, setUser])
 
+
+    const memorizedUser = useMemo(() => user, [user]);
+    console.log(memorizedUser)
     return {
         isLogged: Boolean(jwt),
         isLoading: isLoading.loading,
@@ -40,6 +48,6 @@ export const useUser = () => {
         status: isLoading.status,
         login,
         logout,
-        user,
+        userData : memorizedUser,
     }
 }
