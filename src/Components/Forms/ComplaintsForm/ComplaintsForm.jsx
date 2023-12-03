@@ -9,6 +9,7 @@ import './complaintsForm.css';
 
 
 const options = ['Mascota perdida / Encontrada', 'Maltrato', 'Otro'];
+const optionsSpecie = ['Perro', 'Gato', 'Otro'];
 const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
 const ComplaintsForm = () => {
@@ -22,6 +23,13 @@ const ComplaintsForm = () => {
         description: '',
         termsInput: false,
     });
+
+    const handleOptionSpecieSelected = (option) => {
+        setFormData({
+            ...formData,
+            petSpecie: option,
+        })
+    }
 
     const handleOptionSelected = (option) => {
         if (option === 'Mascota perdida / Encontrada') {
@@ -94,6 +102,7 @@ const ComplaintsForm = () => {
                     <SelectedOptions optionTitle={'Quiero denunciar'} optionsElements={options} isSelected={(option) => handleOptionSelected(option)} />
                     <div className={`loss-pet-container ${formData.typeOfComplaint === 'Mascota perdida / Encontrada' ? 'show-container' : ''}`}>
                         {formData.typeOfComplaint === 'Mascota perdida / Encontrada' ? <>
+                            <SelectedOptions optionTitle={'Especie de la mascota'} optionsElements={optionsSpecie} isSelected={(option) => handleOptionSpecieSelected(option)} />
                             <TextInput className='complaints'
                                 label='Nombre de la mascota'
                                 placeholder='Nombre'
