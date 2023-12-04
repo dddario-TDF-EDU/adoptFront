@@ -2,14 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBvHhy4uVvsDlYMEi_KQ2tVQwsSqZByMIM",
-    authDomain: "adoptapp-f8922.firebaseapp.com",
-    projectId: "adoptapp-f8922",
-    storageBucket: "adoptapp-f8922.appspot.com",
-    messagingSenderId: "377624085087",
-    appId: "1:377624085087:web:58179fa8fef39e551c51ea",
-    measurementId: "G-PX5V10QEFQ",
-};
+    apiKey: "AIzaSyA5rTVUKKtovhgfIvQa9lLRVZRNcdsYdAQ",
+    authDomain: "adoptapp-aed60.firebaseapp.com",
+    projectId: "adoptapp-aed60",
+    storageBucket: "adoptapp-aed60.appspot.com",
+    messagingSenderId: "271490375697",
+    appId: "1:271490375697:web:7ddecc5de2e10ecfc691b0"
+  }; 
 
 // Inicializa Firebase
 const firebaseApp = initializeApp(firebaseConfig);

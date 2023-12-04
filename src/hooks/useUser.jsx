@@ -40,7 +40,7 @@ export const useUser = () => {
 
 
     const memorizedUser = useMemo(() => user, [user]);
-    console.log(memorizedUser)
+    
     return {
         isLogged: Boolean(jwt),
         isLoading: isLoading.loading,

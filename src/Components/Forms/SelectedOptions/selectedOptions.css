@@ -38,6 +38,7 @@
 }
 .arrow-options {
     padding: 0 .5rem;
+    display: flex;
 }
 .open .arrow-options {
     transform: rotate(180deg);
