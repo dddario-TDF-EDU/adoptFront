@@ -20,10 +20,12 @@ export const ResetPasswordModal = () => {
             await restorePass(formData);
             setWasSent(true);
             setIsValidEmail(true);
+            setIsLoading(false)
         }
         catch (error) {
             setWasSent(true);
-            setIsValidEmail(false)
+            setIsValidEmail(false);
+            setIsLoading(false)
         }
     }
 

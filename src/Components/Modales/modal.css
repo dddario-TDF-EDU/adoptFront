@@ -53,19 +53,6 @@
     font-size: 1.5rem;
 }
 
-.modal-img-container {
-    width: 100%;
-    height: 25%;
-    margin-top: 15px;
-    overflow: hidden;
-}
-
-.modal-img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center -90px;
-}
-
 .modal-close-btn {
     position: absolute;
     right: 25px;
@@ -79,29 +66,8 @@
     background-color: rgb(247, 163, 163);
 }
 
-.adoption-message {
-    font-family: var(--p-font);
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    height: 60%;
-}
-.adoption-message p {
-    margin-top: 10px;
-}
-
-.adoption-message h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--main-bg-color);
-    padding-bottom: 2rem;
-}
-
 .modal-text {
     margin-top: 2%;
     text-align: center;
+    font-size: 1.5rem;
 }

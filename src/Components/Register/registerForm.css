@@ -26,6 +26,7 @@
 .btn-form-div {
     display: flex;
     width: 100%;
+    margin-top: 5px;
 }
 
 .btn-register-form {
@@ -42,14 +43,17 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-    margin: 3% auto;
+    margin: auto;
 }
 
-.radio-input-form .filter-box {
+.radio-input-form 
+.filter-box {
     margin: 3px;
 }
 
-.radio-input-form .filter-box .filter-title {
+.radio-input-form 
+.filter-box 
+.filter-title {
     font-size: 1rem;
     font-weight: 600;
 }
@@ -69,7 +73,7 @@
 
 .checkbox-input-form {
     display: flex;
-    margin: 1rem auto;
+    margin: .5rem auto;
     flex-direction: column;
 }
 
@@ -82,4 +86,15 @@
     right: 10px;
     bottom: 60%;
     transform: translateY(-50%);
+}
+
+.terms-conditions {
+    text-decoration: underline;
+    color: blue;
+    text-transform: italic;
+    opacity: 1;
+}
+
+.register-message {
+    margin: auto 50px
 }

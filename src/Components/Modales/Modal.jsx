@@ -22,7 +22,7 @@ export const Modal = ({ children, isOpen, closeModal, modalNumber }) => {
                 {modalNumber === "1" ? (
                     <>
                         <div className='modal-title-content'>
-                            <p className='modal-text'>Por favor complete el siguiente formulario para el registro.</p>
+                            <p className='modal-text'>Por favor complete el formulario para el registro.</p>
                         </div>
                         {children}
                     </>

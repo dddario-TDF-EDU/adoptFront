@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 import Logo from '../../../assets/logo.svg';
 import ScrollToTop from 'react-scroll-to-top';
 
@@ -57,14 +58,17 @@ export const NavBar = () => {
                             :
                             <button className='btn-profile'
                                 onClick={handleProfile}
-                            > {userData.name[0] + userData.surname[0]} </button>
+                            > {userData.name[0] + userData.surname[0]} 
+                            </button>
                         }
                     </li>
                 </ul>
             </nav>
             {!userData ?
-                <LoginScreen isLoginSelected={isLoginSelected} />
-                : <UserProfile isProfileSelected={isProfileSelected} />}
+                <LoginScreen isLoginSelected={isLoginSelected} setIsLoginSelected={setIsLoginSelected}/>
+                :
+                <UserProfile isProfileSelected={isProfileSelected} setIsProfileSelected={setIsProfileSelected} />
+            }
         </>
     )
 }
