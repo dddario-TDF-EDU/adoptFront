@@ -17,8 +17,10 @@
     align-items: center;
 }
 
-.complaints-form .grupoInput,
-.complaints-form .select-options-container {
+.complaints-form 
+.grupoInput,
+.complaints-form 
+.select-options-container {
     width: 100%;
 }
 
@@ -35,16 +37,19 @@
 
 .show-container {
     opacity: 1;
-    height: 100px;
+    height: 130px;
     transition: height .5s linear;
 }
 
-.loss-pet-container .grupoInput {
+.loss-pet-container 
+.grupoInput {
     width: 45%;
     font-size: .8rem;
 }
 
-.loss-pet-container .grupoInput .label {
+.loss-pet-container 
+.grupoInput 
+.label {
     text-align: center;
 }
 
@@ -127,4 +132,14 @@
     background-color: var(--main-bg-color);
     color: var(--white-color);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.success-post {
+    font-family: var(--p-font);
+    color: green;
+}
+
+.error-post {
+    font-family: var(--p-font);
+    color:red;
 }

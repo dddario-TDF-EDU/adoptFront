@@ -32,11 +32,13 @@ const TextInput = ({ id, className, label, type, placeholder, name, value, onCha
         }
     }
     return (
-        <div className={`${className} grupoInput`}>
-            <label className="label" htmlFor={id}>{label} <span className='obligatory-field'>*</span></label>
-            <input className={inputClass} type={type} placeholder={placeholder} id={id} name={name} value={value} onChange={onChange} ref={refInput} />
-            {children}
-        </div>
+        <>
+            <div className={`${className} grupoInput`}>
+                <label className="label" htmlFor={id}>{label} <span className='obligatory-field'>*</span></label>
+                <input className={inputClass} type={type} placeholder={placeholder} id={id} name={name} value={value} onChange={onChange} ref={refInput} />
+                {children}
+            </div>
+        </>
     );
 }
 

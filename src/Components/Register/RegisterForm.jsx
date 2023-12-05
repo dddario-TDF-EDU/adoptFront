@@ -23,9 +23,10 @@ const emptyForm = <>
 export const RegisterForm = ({ closeModal1 }) => {
 
   const [wasSent, setWasSend] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isOpenModal2, setIsOpenModal2] = useState(false);
   const [registerMessage, setRegisterMessage] = useState('');
-  const [formData, handleRegisterChange, handleCheckboxChange] = useForm({
+  const [formData, , handleRegisterChange, handleCheckboxChange] = useForm({
     name: '',
     surname: '',
     email: '',
@@ -36,11 +37,11 @@ export const RegisterForm = ({ closeModal1 }) => {
     hasPet: '',
     livingPlace: '',
     availableAge: '',
-    termsAndCondition : '',
+    termsAndCondition: '',
   });
 
   const isValidForm = () => {
-  
+
     if (getValidateForm(formData)) {
       if (!getValidateEmail(formData.email)) {
         setRegisterMessage('Formato de email incorrecto, por favor ingrese un email válido.');
@@ -50,7 +51,7 @@ export const RegisterForm = ({ closeModal1 }) => {
         setRegisterMessage('Formato de teléfono incorrecto, por favor ingrese un número válido.');
         setIsOpenModal2(true);
       }
-      else if(!getValidatePassword(formData.password)) {
+      else if (!getValidatePassword(formData.password)) {
         setRegisterMessage('Por favor ingrese una contraseña válida.');
         setIsOpenModal2(true);
       }
@@ -64,14 +65,17 @@ export const RegisterForm = ({ closeModal1 }) => {
   };
 
   const sendForm = async () => {
+    setIsLoading(true);
+    setWasSend(true);
     try {
       await registerServices(formData);
       setRegisterMessage(validMessage);
       setIsOpenModal2(true);
-      setWasSend(true);
+      isLoading(false)
     } catch (error) {
       setRegisterMessage(errorMessage);
       setIsOpenModal2(true);
+      isLoading(false)
     }
   };
 
@@ -83,9 +87,11 @@ export const RegisterForm = ({ closeModal1 }) => {
   return (
     <>
       <form className='register-form' onSubmit={handleSubmit}>
-        <ContentForm formData={formData} handleRegisterChange={handleRegisterChange} handleCheckboxChange={handleCheckboxChange}/>
+        <ContentForm formData={formData} handleRegisterChange={handleRegisterChange} handleCheckboxChange={handleCheckboxChange} />
         <div className="btn-form-div">
-          <button className='btn-register-form'>Registrarse</button>
+          { ( !isLoading && ! wasSent) ?
+          <button className='btn-register-form' >Registrarse</button> : 
+          <p> Enviando formulario aguarde por favor ...</p> }
         </div>
       </form>
       <Modal modalNumber="2"

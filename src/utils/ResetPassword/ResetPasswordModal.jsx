@@ -9,7 +9,7 @@ export const ResetPasswordModal = () => {
     const [isValidEmail, setIsValidEmail] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const [wasSent, setWasSent] = useState(null)
-    const [formData, handleInputChange] = useForm({
+    const [formData, ,handleInputChange] = useForm({
         email: ''
     })
 
@@ -20,10 +20,12 @@ export const ResetPasswordModal = () => {
             await restorePass(formData);
             setWasSent(true);
             setIsValidEmail(true);
+            setIsLoading(false)
         }
         catch (error) {
             setWasSent(true);
-            setIsValidEmail(false)
+            setIsValidEmail(false);
+            setIsLoading(false)
         }
     }
 

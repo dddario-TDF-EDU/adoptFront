@@ -31,7 +31,7 @@ const OldPetsSection = () => {
                             hasPrevBtn={true} hasNextBtn={true} timeSlider={7000}/>
                         <section className='btn-see-more-container'>
                             <button className='btn-see-more' id='btn-see-more'>
-                                <Link to='/adopciones/mascotas'  onClick={<ScrollToTop smooth />}>Ver más</Link>
+                                <Link to='/adopciones/mascotas'  onClick={() => <ScrollToTop smooth />}>Ver más</Link>
                             </button>
                         </section>
                     </>
