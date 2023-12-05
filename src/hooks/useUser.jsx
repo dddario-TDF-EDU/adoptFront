@@ -12,10 +12,9 @@ export const useUser = () => {
         try {
             const response = await loginServices(userData);
             const { jwt, user } = response;
-            
+        
             const jwtString = JSON.stringify(jwt);
             window.localStorage.setItem('jwt', jwtString);
-
             setUser(user);
             setJwt(jwt);
 

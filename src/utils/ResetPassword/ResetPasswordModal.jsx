@@ -9,7 +9,7 @@ export const ResetPasswordModal = () => {
     const [isValidEmail, setIsValidEmail] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const [wasSent, setWasSent] = useState(null)
-    const [formData, handleInputChange] = useForm({
+    const [formData, ,handleInputChange] = useForm({
         email: ''
     })
 

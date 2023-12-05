@@ -21,7 +21,7 @@ export const ResetPasswordWindow = () => {
     const [equalPass, setEqualPass] = useState(false)
     const [showFirst, setShowFirst] = useState(false);
     const [showSecond, setShowSecond] = useState(false);
-    const [passwordData, handlePasswordChange, reset] = useForm({
+    const [passwordData, ,handlePasswordChange, ,reset] = useForm({
         password: '',
         repeatPassword: ''
     })
@@ -63,7 +63,7 @@ export const ResetPasswordWindow = () => {
                     console.error(err)
                 })
         }
-        alert('Por favor ingrese datos validos para continuar')
+        else alert('Por favor ingrese datos validos para continuar')
     }
 
     return (
@@ -83,7 +83,7 @@ export const ResetPasswordWindow = () => {
                         onChange={handlePasswordChange}
                     />
                     <button type='button' className='show-pass-btn' onClick={handleToogleFirstPass}>
-                        <img src={showFirst ? showPass : hidePass} alt="" />
+                        <img src={!showFirst ? showPass : hidePass} alt="" />
                     </button>
                 </div>
                 <div className={"second-pass-container"}>
@@ -100,7 +100,7 @@ export const ResetPasswordWindow = () => {
                         onChange={handlePasswordChange}
                     />
                     <button type='button' className='show-pass-btn' onClick={handleToogleSecondPass}>
-                        <img src={showSecond ? showPass : hidePass} alt="" />
+                        <img src={!showSecond ? showPass : hidePass} alt="" />
                     </button>
                 </div>
                 <div className="not-equal-container">

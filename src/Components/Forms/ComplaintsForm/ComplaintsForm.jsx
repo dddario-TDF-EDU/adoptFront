@@ -59,7 +59,7 @@ const ComplaintsForm = () => {
             alert('Ingrese archivo .png .jpg .jpeg .gif')
         }
     };
-    console.log(formData)
+  
     const isValidForm = () =>
         getValidateForm(formData) &&
         getValidateEmail(formData.email) &&
@@ -67,7 +67,6 @@ const ComplaintsForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData)
         if (isValidForm()) {
             setIsLoading(true);
             try {
