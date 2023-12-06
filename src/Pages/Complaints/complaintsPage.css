@@ -48,3 +48,12 @@
     margin: 1rem;
     font-style: oblique;
 }
+
+.complaint-info {
+    font-family: var(--p-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: center;
+    margin-top: 2rem;
+}

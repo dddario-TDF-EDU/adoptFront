@@ -1,12 +1,17 @@
-import Modal from '../../../Components/Modales/Modal'
 import Card from '../Card';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+
+import { AuthContext } from '../../../auth/AuthContext';
+
+import { ConfirmRequest } from '../../Blocks/ConfirmAdoption/ConfirmRequest';
 
 const PetCards = ({ petList }) => {
 
-    const [selectPetId, setSelectPetId] = useState(null);
-    const [selectPetName, setSelectPetName] = useState(null);
-    
+    const [petName, setPetName] = useState(null);
+    const [petId, setPetId] = useState(null);
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
+    const { user: { logged }, userData: { role, id } } = useContext(AuthContext);
 
     return (
         <>
@@ -23,12 +28,21 @@ const PetCards = ({ petList }) => {
                         <li key={index}>{attribut}</li>
                     ))}
                     location={pet.institution}
-                    onClick={() => { setSelectPetId(pet.id); setSelectPetName(pet.name)}}
+                    onClick={() => { setPetName(pet.name), setPetId(pet.id), setIsOpenModal(true) }}
                     interested={pet.interested > 0 ? `${pet.interested} interesados`
                         : '0 interesados'}
+                    role={role}
+                    logged={logged}
                 >
                 </Card>
             ))}
+            <ConfirmRequest
+                isOpenModal={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+                petName={petName}
+                petId={petId}
+                userId={id}
+            />
         </>
     )
 };
