@@ -20,3 +20,20 @@ export const getValidatePassword = (password) => {
     const isValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/.test(password);
     return isValid;
 };
+
+export const getValidateComplaintForm = (formData) => {
+    const requiredFields = ['typeOfComplaint','zipCode', 'file', 'complaintDescription', 'termsInput'];
+
+    for (const field of requiredFields) {
+        if (!formData[field]) {
+            return false;
+        }
+    }
+
+    if (formData.typeOfComplaint === 'Mascota perdida' || formData.typeOfComplaint === 'Mascota encontrada') {
+        if (!formData.petSpecie) {
+            return false;
+        }
+    }
+    return true;
+};

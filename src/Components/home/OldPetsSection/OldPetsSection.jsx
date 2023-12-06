@@ -1,13 +1,14 @@
 import SectionStructure from '../../SectionStructure/SectionStructure';
 import PetCards from '../../Card/PetCards/PetCards';
 import NotFoundImg from '../../../assets/not-found.svg';
-import ScrollToTop from 'react-scroll-to-top';
 import Slider from '../../Slider/Slider';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getOldPets } from './Services/getOldPets.mjs';
-import './oldPetsSection.css';
+import { getOldPets } from '../../../Services/petService';
 
+import { scrollToTopJs } from '../../../constants/scrollToTop.mjs';
+
+import './oldPetsSection.css';
 const OldPetsSection = () => {
 
     const [petList, setPetList] = useState([]);
@@ -31,7 +32,7 @@ const OldPetsSection = () => {
                             hasPrevBtn={true} hasNextBtn={true} timeSlider={7000}/>
                         <section className='btn-see-more-container'>
                             <button className='btn-see-more' id='btn-see-more'>
-                                <Link to='/adopciones/mascotas'  onClick={() => <ScrollToTop smooth />}>Ver más</Link>
+                                <Link to='/adopciones/mascotas'  onClick={() => scrollToTopJs()}>Ver más</Link>
                             </button>
                         </section>
                     </>

@@ -1,21 +1,23 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 import Logo from '../../../assets/logo.svg';
-import ScrollToTop from 'react-scroll-to-top';
 
 import { LoginScreen } from '../../Login/LoginScreen';
-import { useUser } from '../../../hooks/useUser'
 
 import { UserProfile } from '../../UserProfile/UserProfile';
 import './navBar.css'
 
+import { AuthContext } from '../../../auth/AuthContext';
+import { scrollToTopJs } from '../../../constants/scrollToTop.mjs';
+
 export const NavBar = () => {
+
+    const { user : { logged, user} } = useContext(AuthContext);
 
     const [isLoginSelected, setIsLoginSelected] = useState(false);
     const [isProfileSelected, setIsProfileSelected] = useState(false);
-    const { userData } = useUser();
 
     const handleLogin = () => {
         setIsLoginSelected(!isLoginSelected)
@@ -29,45 +31,43 @@ export const NavBar = () => {
         <>
             <nav id="nav" className="main-nav">
                 <div className='logo-div'>
-                    <Link to='/' className='logo-link' onClick={() => <ScrollToTop smooth />}>
+                    <Link to='/' className='logo-link' onClick={() => scrollToTopJs()}>
                         <img className='logo' src={Logo} alt="logo" />
                     </Link>
                 </div>
                 <ul className="nav-links">
                     <li className="link-item">
-                        <Link to='/' onClick={() => <ScrollToTop smooth />}>Inicio</Link>
+                        <Link to='/' onClick={() => scrollToTopJs()}>Inicio</Link>
                     </li>
                     <li className="link-item">
-                        <Link to='/adopciones/mascotas' onClick={() => <ScrollToTop smooth />}>Adoptar</Link>
+                        <Link to='/adopciones/mascotas' onClick={() =>scrollToTopJs()}>Adoptar</Link>
                     </li>
                     <li className="link-item">
-                        <Link to='/denuncias' onClick={() => <ScrollToTop smooth />} >Denunciar</Link>
+                        <Link to='/denuncias' onClick={() => scrollToTopJs()} >Denunciar</Link>
                     </li>
                     <li className="link-item">
-                        <Link to='/informacion' onClick={() => <ScrollToTop smooth />} >Información</Link>
+                        <Link to='/informacion' onClick={() => scrollToTopJs()} >Información</Link>
                     </li>
                     <li className="link-item">
-                        <Link to='/donaciones' onClick={() => <ScrollToTop smooth />} >Ayudar</Link>
+                        <Link to='/donaciones' onClick={() => scrollToTopJs()} >Ayudar</Link>
                     </li>
                     <li className="link-item">
-                        {!userData ?
+                        {logged ?
+                            <button className='btn-profile'
+                                onClick={handleProfile}
+                            > {user.name[0] + user.surname[0]}
+                            </button> :
                             <button className="user-login-button"
                                 onClick={handleLogin}>
                                 Iniciar sesion
-                            </button>
-                            :
-                            <button className='btn-profile'
-                                onClick={handleProfile}
-                            > {userData.name[0] + userData.surname[0]} 
                             </button>
                         }
                     </li>
                 </ul>
             </nav>
-            {!userData ?
-                <LoginScreen isLoginSelected={isLoginSelected} setIsLoginSelected={setIsLoginSelected}/>
-                :
-                <UserProfile isProfileSelected={isProfileSelected} setIsProfileSelected={setIsProfileSelected} />
+            { logged ?
+                <UserProfile isProfileSelected={isProfileSelected} setIsProfileSelected={setIsProfileSelected} /> :
+                <LoginScreen isLoginSelected={isLoginSelected} setIsLoginSelected={setIsLoginSelected} />
             }
         </>
     )

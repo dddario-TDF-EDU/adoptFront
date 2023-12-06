@@ -1,8 +1,10 @@
 import TextInput from "../../Components/Inputs/TextInput/TextInput";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
+import { restorePass } from "../../Services/authServices.mjs";
+
 import './resetPassword.css'
-import { restorePass } from "../../auth/services/authServices.mjs";
+
 
 export const ResetPasswordModal = () => {
 
