@@ -1,0 +1,37 @@
+.request-container {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.btn-request-container {
+    margin: auto;
+    text-align: center;
+}
+
+.btn-confirm-request,
+.btn-reject-request {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 30px;
+    color: var(--white-color);
+    margin: 5%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn-confirm-request {
+    background-color: var(--main-bg-color);
+}
+
+.btn-reject-request {
+    background-color: red;
+}
+
+.request-succes {
+    font-size: 1.2rem;
+    color: green;
+}
+.request-reject {
+    font-size: 1.2rem;
+    color: red;
+}

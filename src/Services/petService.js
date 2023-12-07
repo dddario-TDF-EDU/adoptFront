@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiPath } from "../../../Services/apiPath.mjs";
+import { apiPath } from "./apiPath.mjs";
 
 export const getAllPets = (pageNumber, searchParam) => {
     return getPets(pageNumber, searchParam);
@@ -18,4 +18,9 @@ export const getTotalPets = () => {
 const totalPets = async() => {
     const response = await axios.get(`${apiPath}pets/count`);
     return response.data;
+}
+
+export const getOldPets = async() => {
+    const response = await axios.get(`${apiPath}pets/oldPets`);
+    return response.data
 }

@@ -12,20 +12,18 @@ import MessageParser from './Chatbot/MessageParser';
 import ActionProvider from './Chatbot/ActionProvider';
 
 import Chatbot from 'react-chatbot-kit';
-import 'react-chatbot-kit/build/main.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadset } from '@fortawesome/free-solid-svg-icons'
 
-import { AuthProvider } from './auth/AuthContext';
+import {  AuthProvider } from './auth/AuthContext';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useState} from 'react';
 
 import './App.css';
-import './Chatbot/styles.css'
-
-
+import './Chatbot/styles.css';
+import 'react-chatbot-kit/build/main.css';
 
 function App() {
 
@@ -38,8 +36,8 @@ function App() {
             config={config}
             messageParser={MessageParser}
             actionProvider={ActionProvider}
-            headerText = {'Adopt-Chat'}
-            placeholderText = {'Escribe tu consulta aqui'}
+            headerText={'Adopt-Chat'}
+            placeholderText={'Escribe tu consulta aqui'}
           />
         )}
         <button

@@ -25,6 +25,9 @@
 
 .btn-form-div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     margin-top: 5px;
 }
@@ -97,4 +100,11 @@
 
 .register-message {
     margin: auto 50px
+}
+.register-error-message {
+    color: red;
+}
+
+.adopt-greetin {
+    margin: 2rem auto;
 }

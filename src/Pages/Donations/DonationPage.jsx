@@ -1,8 +1,10 @@
 import DonationForm from '../../Components/Forms/DonationForm/DonationForm';
 import DonationCard from '../../Components/Card/DonationCard/DonationCard';
 import SectionStructure from '../../Components/SectionStructure/SectionStructure';
-import './donationPage.css';
 import Slider from '../../Components/Slider/Slider';
+
+import './donationPage.css';
+
 
 const DonationPage = () => {
 

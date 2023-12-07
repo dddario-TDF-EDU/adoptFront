@@ -5,8 +5,8 @@ import SectionStructure from '../../Components/SectionStructure/SectionStructure
 import NotFoundImg from '../../assets/not-found.svg';
 import NotResultImg from '../../assets/not-result.svg';
 import { useEffect, useState } from 'react';
-import { getAllPets, getTotalPets } from './Services/getPets';
-import { scrollToTopJs } from './Services/scrollToTop.mjs';
+import { getAllPets, getTotalPets } from '../../Services/petService';
+import { scrollToTopJs } from '../../constants/scrollToTop.mjs';
 import './adoptionPage.css';
 
 

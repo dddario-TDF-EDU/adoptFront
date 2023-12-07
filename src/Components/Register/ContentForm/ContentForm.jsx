@@ -43,6 +43,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     name="name"
                     value={formData.name}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 />
                 <TextInput
                     className='register'
@@ -52,6 +53,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     name="surname"
                     value={formData.surname}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 />
                 <TextInput
                     className='register'
@@ -61,6 +63,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     name="address"
                     value={formData.address}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 />
                 <TextInput
                     className='register'
@@ -72,6 +75,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     value={formData.email}
                     isUseRef={formData.email}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 />
                 <TextInput
                     className='register pass-div'
@@ -83,6 +87,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     value={formData.password}
                     isUseRef={formData.password}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 >
                     <button type='button' className='button-pass-register' onClick={handleTooglePass}>
                         <img src={isShowPass ? showPass : hidePass} alt="" />
@@ -107,6 +112,7 @@ export const ContentForm = ({ formData, handleRegisterChange, handleCheckboxChan
                     value={formData.phoneNumber}
                     isUseRef={formData.phoneNumber}
                     onChange={handleRegisterChange}
+                    isRequired={true}
                 />
             </div >
             <div className={'radio-input-form'}>

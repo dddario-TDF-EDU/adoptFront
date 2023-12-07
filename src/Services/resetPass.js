@@ -1,5 +1,5 @@
 import axios from "axios"
-import { apiPath } from "../../Services/apiPath.mjs"
+import { apiPath } from "./apiPath.mjs"
 
 export const resetPassword = async (password, token) => {
     try {

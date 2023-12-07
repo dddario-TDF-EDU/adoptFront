@@ -6,8 +6,8 @@ import TitleBlock from "../../Components/Blocks/TitleBlock/TitleBlock";
 
 import showPass from '../../assets/eye-password/show-password.svg'
 import hidePass from '../../assets/eye-password/hide-password.svg'
-import { resetPassword } from "../services/getResetPass";
-import { getValidateForm, getValidatePassword } from "../../Services/getValidForm.mjs";
+import { resetPassword } from "../../Services/resetPass";
+import { getValidateForm, getValidatePassword } from "../../Services/validateForms.mjs";
 
 
 export const ResetPasswordWindow = () => {

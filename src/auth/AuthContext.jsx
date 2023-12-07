@@ -1,20 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
+import { AuthReducer } from "./AuthReducer";
+import { decodePayload } from "../constants/Jwt.atob";
+
+const init = () => {
+    return JSON.parse(localStorage.getItem('user_information')) || { logged : false} ;
+};
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
 
-    const [jwt, setJwt] = useState(() =>
-        window.localStorage.getItem('jwt')
-    );
+    const [user, dispatch] = useReducer(AuthReducer, {}, init)
+    const [userData, setUserData] = useState('')
 
-    const [user, setUser] = useState(null);
-    
-    const [isLogeed, setIsLogeed] = useState(() =>
-        window.localStorage.getItem('logged')
-    );
+    useEffect(() => {
+        localStorage.setItem('user_information', JSON.stringify(user));
+        if(user.jwt) {
+        setUserData(decodePayload(user.jwt))
+        }
+    }, [user]);
 
-    return <AuthContext.Provider value={{ jwt, setJwt, user, setUser, isLogeed, setIsLogeed }}>
+    return <AuthContext.Provider value={{ user, dispatch, userData }}>
         {children}
     </AuthContext.Provider>
 }

@@ -1,7 +1,7 @@
 import InformationCard from '../../Components/Card/InformationCard/InformationCard';
 import ComplaintsForm from '../../Components/Forms/ComplaintsForm/ComplaintsForm';
 import SectionStructure from '../../Components/SectionStructure/SectionStructure';
-import { getComplaints } from './Services/getComplaints.mjs';
+import { getComplaints } from '../../Services/complaintService.mjs';
 import { useEffect, useState } from 'react';
 import './complaintsPage.css';
 
@@ -11,9 +11,9 @@ const ComplaintsPage = () => {
 
     useEffect(() => {
         getComplaints()
-        .then((result) => {
-            setComplaintList(result)
-        })
+            .then((result) => {
+                setComplaintList(result)
+            })
     }, [])
 
 
@@ -27,6 +27,7 @@ const ComplaintsPage = () => {
                 </aside>
                 <section className='complaints-form-section'>
                     <div className='complaints-form-container'>
+                        <h3 className='complaint-info'>Aunque las denuncias son anónimas te solicitamos tus datos de contacto para confirmar la situación. En el caso de tratarse de una mascota perdida se hará público tu número para que la comunidad pueda aportar información.</h3>
                         <ComplaintsForm />
                     </div>
                 </section>
@@ -37,9 +38,14 @@ const ComplaintsPage = () => {
                     {complainsList.map((complaint, index) => (
                         <InformationCard
                             key={index}
-                            title = {complaint.type}
+                            title={complaint.type === 'Mascota perdida' ? 'Me perdi' : complaint.type === 'Mascota encontrada' ? 'Me econtraron' : complaint.type}
                             imageUrl={complaint.img_url}
-                            body = {complaint.description}
+                            body={complaint.description}
+                            petName={complaint.petName && complaint.petName}
+                            petAge={complaint.petAge && complaint.petAge}
+                            petSpecie={complaint.petSpecie && complaint.petSpecie}
+                            contact={(complaint.type === 'Mascota perdida' || complaint.type === 'Mascota encontrada') ? complaint.phoneNumber : null}
+                            city={complaint.city}
                         />
                     ))}
                 </section>
